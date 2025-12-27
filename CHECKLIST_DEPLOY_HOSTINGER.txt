@@ -1,0 +1,44 @@
+✅ CHECKLIST DE DEPLOY NA HOSTINGER
+=====================================
+
+PRÉ-DEPLOY:
+[ ] Node.js instalado localmente (v18+)
+[ ] Dependências instaladas (npm install)
+[ ] Build executado com sucesso (npm run build)
+[ ] Arquivos gerados em dist/public/
+[ ] Script build-hostinger.sh executado (ou preparação manual)
+[ ] Pasta hostinger-build/ criada com todos os arquivos
+
+UPLOAD:
+[ ] Conectado ao FTP da Hostinger
+[ ] Navegou até public_html/
+[ ] Backup dos arquivos antigos (opcional mas recomendado)
+[ ] Todos os arquivos de hostinger-build/ enviados
+[ ] Arquivo .htaccess enviado para a raiz de public_html/
+[ ] Estrutura de pastas mantida (assets/ preservada)
+
+VERIFICAÇÃO:
+[ ] Site acessível no navegador
+[ ] Página inicial carrega corretamente
+[ ] CSS e JavaScript funcionando
+[ ] Imagens aparecem corretamente
+[ ] Navegação funciona (sem erros 404)
+[ ] Console do navegador sem erros críticos
+[ ] Responsividade testada em mobile
+
+PERMISSÕES (via SSH, se disponível):
+[ ] Arquivos HTML/CSS/JS: 644
+[ ] Pastas: 755
+[ ] .htaccess: 644
+
+TESTES FINAIS:
+[ ] Teste em diferentes navegadores
+[ ] Teste em dispositivos móveis
+[ ] Teste de velocidade de carregamento
+[ ] Verificação de SEO (meta tags)
+
+NOTAS:
+- Se o site não carregar, verifique se .htaccess está na raiz
+- Se houver 404, verifique se mod_rewrite está habilitado
+- Limpe o cache do navegador após deploy (Ctrl+F5)
+

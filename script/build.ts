@@ -1,6 +1,7 @@
 import { build as esbuild } from "esbuild";
 import { build as viteBuild } from "vite";
-import { rm, readFile } from "fs/promises";
+import { rm, readFile, copyFile, access } from "fs/promises";
+import { join } from "path";
 
 // server deps to bundle to reduce openat(2) syscalls
 // which helps cold start times
@@ -37,6 +38,16 @@ async function buildAll() {
 
   console.log("building client...");
   await viteBuild();
+
+  // Copiar .htaccess para dist/public (necessário para Hostinger)
+  try {
+    const htaccessPath = ".htaccess";
+    const distPublicPath = join("dist", "public", ".htaccess");
+    await copyFile(htaccessPath, distPublicPath);
+    console.log("✅ .htaccess copiado para dist/public/");
+  } catch (err) {
+    console.warn("⚠️  .htaccess não encontrado ou não pôde ser copiado (pode ser normal)");
+  }
 
   console.log("building server...");
   const pkg = JSON.parse(await readFile("package.json", "utf-8"));

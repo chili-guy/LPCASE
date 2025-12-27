@@ -1,0 +1,75 @@
+═══════════════════════════════════════════════════════════════
+  CONFIGURAÇÃO CORRETA PARA O PAINEL DA HOSTINGER
+═══════════════════════════════════════════════════════════════
+
+⚠️ IMPORTANTE: Este projeto é VITE + REACT, NÃO Next.js!
+
+═══════════════════════════════════════════════════════════════
+  CONFIGURAÇÕES CORRETAS:
+═══════════════════════════════════════════════════════════════
+
+1. Configuração predefinida:
+   ❌ NÃO use "Next.js"
+   ✅ Use "Custom" ou "Static Site" ou "React"
+
+2. Branch:
+   ✅ main
+
+3. Versão do Node:
+   ✅ 20.x (ou 18.x se 20 não estiver disponível)
+
+4. Diretório raiz:
+   ✅ ./
+
+5. Comando de construção:
+   ✅ npm install && npm run build
+   
+   (OU apenas: npm run build - se as dependências já estiverem instaladas)
+
+6. Diretório de saída:
+   ❌ NÃO use "out"
+   ✅ Use: dist/public
+   
+   ⚠️ CRÍTICO: O diretório deve ser "dist/public" (com a barra)
+
+7. Gerenciador de pacotes:
+   ✅ npm
+
+8. Variáveis de ambiente:
+   ✅ NODE_ENV=production
+   (Adicione se houver opção)
+
+═══════════════════════════════════════════════════════════════
+  RESUMO RÁPIDO:
+═══════════════════════════════════════════════════════════════
+
+Configuração predefinida: Custom (ou Static Site)
+Branch: main
+Versão do Node: 20.x
+Diretório raiz: ./
+Comando de construção: npm install && npm run build
+Diretório de saída: dist/public
+Gerenciador de pacotes: npm
+Variáveis de ambiente: NODE_ENV=production
+
+═══════════════════════════════════════════════════════════════
+  O QUE ACONTECE APÓS O BUILD:
+═══════════════════════════════════════════════════════════════
+
+1. O comando "npm run build" executa o script build.ts
+2. O script faz build do cliente (Vite) → gera dist/public/
+3. O script copia automaticamente o .htaccess para dist/public/
+4. A Hostinger publica tudo que está em dist/public/
+
+═══════════════════════════════════════════════════════════════
+  VERIFICAÇÃO PÓS-DEPLOY:
+═══════════════════════════════════════════════════════════════
+
+Após o deploy, verifique se:
+✅ O site carrega no navegador
+✅ O arquivo .htaccess está presente (importante para SPA)
+✅ As rotas funcionam (sem erro 404)
+✅ CSS e JavaScript carregam corretamente
+
+═══════════════════════════════════════════════════════════════
+
